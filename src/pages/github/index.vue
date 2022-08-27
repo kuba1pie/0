@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+window.location.replace('https://github.com/kuba1pie/')
 </script>
 
 <template>

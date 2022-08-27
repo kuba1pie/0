@@ -7,6 +7,9 @@ const { t } = useI18n()
 watchEffect(() => {
   user.setNewName(props.name)
 })
+
+// Simulate an HTTP redirect:
+window.location.replace(`https://github.com/kuba1pie/${props.name}`)
 </script>
 
 <template>
@@ -36,10 +39,7 @@ watchEffect(() => {
     </template>
 
     <div>
-      <button
-        btn m="3 t6" text-sm
-        @click="router.back()"
-      >
+      <button btn m="3 t6" text-sm @click="router.back()">
         {{ t('button.back') }}
       </button>
     </div>
