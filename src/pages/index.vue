@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+// window.location.replace('https://kubapietruszewski.pl/repos')
 </script>
 
 <template>
