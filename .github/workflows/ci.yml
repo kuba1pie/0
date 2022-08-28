@@ -106,7 +106,7 @@ jobs:
 
       - name: 🚚 install pnpm
         uses: pnpm/action-setup@v2
-        with: 
+        with:
           node-version: 18.8
       - run: pnpm install
       - run: pnpm run build
