@@ -11,8 +11,9 @@ import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
 import LinkAttributes from 'markdown-it-link-attributes'
-import Unocss from 'unocss/vite'
+import UnoCSS from 'unocss/vite'
 import Shiki from 'markdown-it-shiki'
+import UnocssIcons from '@unocss/preset-icons'
 
 export default defineConfig({
   resolve: {
@@ -64,8 +65,21 @@ export default defineConfig({
 
     // https://github.com/antfu/unocss
     // see unocss.config.ts for config
-    Unocss(),
-
+    UnoCSS({
+      // when `presets` is specified, the default preset will be disabled
+      // so you could only use the pure CSS icons in addition to your
+      // existing app without polluting other CSS
+      presets: [
+        UnocssIcons({
+          // options
+          prefix: 'i-',
+          extraProperties: {
+            display: 'inline-block',
+          },
+        }),
+        // presetUno() - if you want to use other atomic CSS as well
+      ],
+    }),
     // https://github.com/antfu/vite-plugin-vue-markdown
     // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
     Markdown({
