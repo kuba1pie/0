@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import fetch from 'node-fetch'
+import axios from 'axios'
 import type { RootObject } from '../types'
 
 const store = reactive({
   results: [] as RootObject[], loading: false,
 })
 async function ddd() {
-  fetch('https://api.github.com/users/kuba1pie/repos')
-    .then(response => response.json())
+  axios.get('https://api.github.com/users/kuba1pie/repos').then(response => response.json())
     .then((data) => {
       store.results = (data)
     })
