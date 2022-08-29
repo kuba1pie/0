@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import fetch from 'node-fetch'
 import type { RootObject } from '../types'
 
 const store = reactive({
