@@ -7,7 +7,9 @@ const store = reactive({
 async function ddd() {
   fetch('https://api.github.com/users/kuba1pie/repos')
     .then(response => response.json())
-    .then(data => store.results = (data))
+    .then((data) => {
+      store.results = (data)
+    })
 }
 try {
   store.loading = true
