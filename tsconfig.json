@@ -25,10 +25,14 @@
       "~/*": ["src/*"]
     }
   },
-  "lintOnSave": true,
+  "compileOnSave": true,
   "extends": "@octokit/tsconfig",
   "exclude": ["dist", "node_modules", "cypress"],
   "include": [
-    "src/octokit.d.ts"
-  ],  
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "public"
+  ]
 }
