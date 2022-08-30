@@ -5,12 +5,6 @@ const store = reactive({
   results: [] as RootObject[], loading: false,
 })
 
-function getSorted() {
-  return store.results.sort(
-    (objA, objB) => objA.updated_at.getTime() - objB.updated_at.getTime(),
-  );
-}
-
 async function getRepositories() {
   fetch('https://api.github.com/users/kuba1pie/repos')
     .then(response => response.json())
@@ -34,7 +28,7 @@ finally {
 <template>
   <main class="wrapper flex flex-col lg:w-400 m-auto">
     <Header />
-    <RepoCard v-for="result in getSorted" :key="result.id" class="item" :item="result" />
+    <RepoCard v-for="result in store.results" :key="result.id" class="item" :item="result" />
     <Footer />
   </main>
 </template>
