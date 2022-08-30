@@ -1,1 +1,0 @@
-declare module 'https://cdn.skypack.dev/@octokit/request'

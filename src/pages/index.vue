@@ -26,7 +26,7 @@ finally {
 </script>
 
 <template>
-  <main class="wrapper flex flex-col lg:w-400 m-auto">
+  <main class="wrapper flex flex-col lg:max-w-400 m-auto">
     <Header />
     <RepoCard v-for="result in store.results" :key="result.id" class="item" :item="result" />
     <Footer />

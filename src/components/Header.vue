@@ -5,7 +5,10 @@
       target="_blank" title="GitHub"
     >
       <div i-carbon-logo-github />
-      <span class="text-6">https://github.com/kuba1pie</span>
+      <div class="flex flex-col m-5">
+        <span class="text-6">Kuba Pietruszewski</span>
+        <span class="text-6">https://github.com/kuba1pie</span>
+      </div>
     </a>
   </div>
 </template>
