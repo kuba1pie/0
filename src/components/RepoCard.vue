@@ -15,11 +15,11 @@ const item = props.item as RootObject
   <div class="item mx-6 my-3 border-2 p-5 flex flex-col sm:flex">
     <a :href="item.html_url">
       <h2 class="font-bold text-8 hover:opacity-100 hover:text-teal-600">
-        {{  item.name  }}
+        {{ item.name }}
       </h2>
     </a>
     <div class="description my-3 text-5 text-gray-800/60" :class="{ 'text-white': isDark }">
-      {{  item.description  }}
+      {{ item.description }}
     </div>
     <div class="links flex flex-col sm:flex-row justify-between items-center">
       <div class="links flex">
@@ -36,15 +36,15 @@ const item = props.item as RootObject
       </div>
       <div v-if="item.topics.length > 0" class="topics flex text-5">
         <div v-for="topic in item.topics" :key="topic + item.id" class="topic p-2">
-          {{  topic  }}
+          {{ topic }}
         </div>
       </div>
       <div class="dates text-center sm:text-right text-5 flex flex-col">
         <div class="date">
-          Created: {{  item.created_at.toString().slice(0, 10)  }}
+          Created: {{ item.created_at.toString().slice(0, 10) }}
         </div>
         <div class="date">
-          Last update: {{  item.updated_at.toString().slice(0, 10)  }}
+          Last update: {{ item.updated_at.toString().slice(0, 10) }}
         </div>
       </div>
     </div>
