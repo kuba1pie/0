@@ -27,8 +27,8 @@ finally {
 
 <template>
   <main class="wrapper flex flex-col lg:max-w-400 m-auto">
-    <Header />
-    <RepoCard v-for="result in store.results" :key="result.id" class="item" :item="result" />
-    <Footer />
+    <TheHeader />
+    <RepoCard v-for="result in store.results.slice().reverse()" :key="result.id" class="item" :item="result" />
+    <TheFooter />
   </main>
 </template>

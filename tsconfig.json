@@ -26,13 +26,5 @@
     }
   },
   "compileOnSave": true,
-  "extends": "@vue/tsconfig/tsconfig.web.json",
-  "exclude": ["dist", "node_modules", "cypress"],
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "public"
-  ]
+  "exclude": ["dist", "node_modules", "cypress"]
 }
