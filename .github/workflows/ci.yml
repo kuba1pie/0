@@ -109,7 +109,7 @@ jobs:
         with:
           node-version: 18.8
       - run: pnpm install
-      - run: pnpm run build
+      - run: npx vite build
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.1
