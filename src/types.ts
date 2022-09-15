@@ -29,7 +29,7 @@ export interface Permissions {
   pull: boolean
 }
 
-export interface RootObject {
+export interface Repo {
   id: number
   node_id: string
   name: string

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import type { RootObject } from '~/types'
+import type { Repo } from '~/types'
 
 const props = defineProps({
   item: {
-    type: Object as PropType<RootObject>,
+    type: Object as PropType<Repo>,
 
   },
 })
-const item = props.item as RootObject
+const item = props.item as Repo
 </script>
 
 <template>
@@ -44,7 +44,7 @@ const item = props.item as RootObject
           Created: {{ item.created_at.toString().slice(0, 10) }}
         </div>
         <div class="date">
-          Last update: {{ item.updated_at.toString().slice(0, 10) }}
+          Last update: {{ item.pushed_at.toString().slice(0, 10) }}
         </div>
       </div>
     </div>

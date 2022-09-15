@@ -1,34 +1,18 @@
-import { acceptHMRUpdate, defineStore } from 'pinia'
+import { defineStore } from 'pinia'
+import { Repo } from '~/types';
 
-export const useUserStore = defineStore('user', () => {
-  /**
-   * Current name of the user.
-   */
-  const savedName = ref('')
-  const previousNames = ref(new Set<string>())
-
-  const usedNames = computed(() => Array.from(previousNames.value))
-  const otherNames = computed(() => usedNames.value.filter(name => name !== savedName.value))
-
-  /**
-   * Changes the current name of the user and saves the one that was used
-   * before.
-   *
-   * @param name - new name to set
-   */
-  function setNewName(name: string) {
-    if (savedName.value)
-      previousNames.value.add(savedName.value)
-
-    savedName.value = name
-  }
-
-  return {
-    setNewName,
-    otherNames,
-    savedName,
-  }
+export const useDefaultStore = defineStore('defaultStore', {
+  state: () => ({
+    results: [] as Repo[]
+  }),
+  actions: {
+    async getRepositories() {
+      const url = 'https://api.github.com/users/kuba1pie/repos?sort=pushed'
+      const response = await fetch(url)
+      const data = await response.json()
+      this.results = data
+    }
+  },
+  getters: {
+  },
 })
-
-if (import.meta.hot)
-  import.meta.hot.accept(acceptHMRUpdate(useUserStore, import.meta.hot))
