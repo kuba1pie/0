@@ -1,20 +1,17 @@
 <script setup lang="ts">
-const { t } = useI18n()
-window.location.replace('https://github.com/kuba1pie/')
+
+const state = useDefaultStore()
+
+state.getRepositories()
+
 </script>
 
 <template>
-  <div>
-    <h2>Kuba Pietruszewski</h2>
-    <p>
-      <em text-sm opacity-75>{{ t('intro.desc') }}</em>
-    </p>
-
-    <div py-4 />
-  </div>
+  <main class="wrapper flex flex-col lg:max-w-400 m-auto">
+    <TheHeader />
+    <div class="flex flex-col">
+      <RepoCard v-for="result in state.results" :key="result.id" class="item" :item="result" />
+    </div>
+    <TheFooter />
+  </main>
 </template>
-
-<route lang="yaml">
-meta:
-  layout: home
-</route>
